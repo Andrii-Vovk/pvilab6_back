@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers;
+use App\Http\Controllers\GamerController;
+use App\Models\Gamer;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,10 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    return ['message' => 'hello'];
-});
-
+Route::resource('gamers', 'GamerController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
